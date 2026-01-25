@@ -86,36 +86,3 @@ bloomhive/
 |----------|----------|-----------|
 | Video storage | URL-based (external hosting) | Start simple — creators link to YouTube, Vimeo, etc. Avoids storage/transcoding complexity. Can revisit native uploads later. |
 | Contact/hire flow | Simple "Message me" | Light-touch for MVP. Direct messaging between users. |
-
-## Milestones
-
-### Phase 1 — Foundation
-- [ ] Project setup (Next.js, Supabase, Tailwind)
-- [ ] Database schema design
-- [ ] Auth flow (sign up, login, OAuth)
-- [ ] Basic user profiles
-
-### Phase 2 — Core Features
-- [ ] Video submissions (URL-based)
-- [ ] Creator portfolio pages
-- [ ] Video metadata capture (model, tools, prompt, specs)
-- [ ] Browse/discovery feed
-- [ ] Search and filtering
-
-### Phase 3 — Community
-- [ ] Follow system
-- [ ] Likes/appreciation
-- [ ] Comments
-- [ ] Direct messaging
-
-### Phase 4 — Launch
-- [ ] Public launch
-- [ ] Creator onboarding campaign
-- [ ] Performance optimization
-
-## Links
-
-- **Production:**
-- **Staging:**
-- **Supabase Dashboard:**
-- **Vercel Dashboard:**
