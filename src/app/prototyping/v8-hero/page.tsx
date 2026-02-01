@@ -1,11 +1,19 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft, Search, Bell } from "lucide-react";
 
-// Light mode color palette - warm cream
 const navLinks = ["Explore", "Creators", "Collections", "Jobs"];
 const categories = ["All", "Cinematic", "Abstract", "Character", "Landscapes", "Motion Graphics"];
+
+const rotatingWords = ["trailblazers", "pioneers", "artists", "visionaries"];
+
+const featuredCards = [
+  { id: 1, gradient: "from-violet-600 to-indigo-900", creator: "Elena Voss", title: "Metamorphosis III" },
+  { id: 2, gradient: "from-amber-500 to-rose-600", creator: "Marcus Chen", title: "Liquid Dreams" },
+  { id: 3, gradient: "from-emerald-400 to-cyan-600", creator: "Aria Patel", title: "Neon Whispers" },
+];
 
 const works = [
   { id: 1, gradient: "from-violet-600 to-indigo-900", creator: "Elena Voss", title: "Metamorphosis III", model: "Sora", duration: "0:24", aspect: "16:9" },
@@ -20,8 +28,6 @@ const works = [
   { id: 10, gradient: "from-indigo-500 to-purple-600", creator: "Theo Park", title: "Midnight Sun", model: "Sora", duration: "0:27", aspect: "16:9" },
   { id: 11, gradient: "from-teal-400 to-emerald-600", creator: "Maya Singh", title: "Fluid Motion", model: "Veo", duration: "0:16", aspect: "9:16" },
   { id: 12, gradient: "from-red-500 to-pink-600", creator: "Oliver Stone", title: "Digital Rain", model: "Kling", duration: "0:30", aspect: "4:3" },
-  { id: 13, gradient: "from-slate-600 to-zinc-800", creator: "Sam Lee", title: "Monochrome", model: "Sora", duration: "0:33", aspect: "1:1" },
-  { id: 14, gradient: "from-lime-400 to-green-600", creator: "Zara Ahmed", title: "Growth", model: "Veo", duration: "0:19", aspect: "9:16" },
 ];
 
 function getAspectClass(aspect: string) {
@@ -35,10 +41,119 @@ function getAspectClass(aspect: string) {
   }
 }
 
-export default function LightMasonry() {
+function RotatingText() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % rotatingWords.length);
+        setIsAnimating(false);
+      }, 400);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span className="relative inline-block">
+      {/* Invisible text to reserve width for longest word */}
+      <span className="invisible font-medium">trailblazers</span>
+      {/* Animated text positioned absolutely */}
+      <span className="absolute inset-0 overflow-hidden">
+        <span
+          className={`block transition-transform duration-400 ease-out ${
+            isAnimating ? "-translate-y-full" : "translate-y-0"
+          }`}
+        >
+          <span className="text-stone-900 font-medium">{rotatingWords[currentIndex]}</span>
+        </span>
+      </span>
+    </span>
+  );
+}
+
+function StackedCards() {
+  return (
+    <div className="relative w-80 h-[280px] lg:w-96 lg:h-[328px]">
+      {featuredCards.map((card, index) => {
+        const offset = (featuredCards.length - 1 - index) * 20;
+        const rotation = (featuredCards.length - 1 - index) * 3;
+        const scale = 1 - (featuredCards.length - 1 - index) * 0.05;
+
+        return (
+          <div
+            key={card.id}
+            className="absolute top-0 left-0 w-full aspect-4/3 rounded-xl overflow-hidden"
+            style={{
+              transform: `translateY(${offset}px) rotate(${rotation}deg) scale(${scale})`,
+              zIndex: index,
+            }}
+          >
+            {/* Metallic border effect */}
+            <div
+              className="absolute inset-0 rounded-xl p-[2px]"
+              style={{
+                background: `linear-gradient(
+                  135deg,
+                  rgba(255, 255, 255, 0.4) 0%,
+                  rgba(200, 200, 210, 0.2) 25%,
+                  rgba(255, 255, 255, 0.5) 50%,
+                  rgba(180, 180, 190, 0.2) 75%,
+                  rgba(255, 255, 255, 0.3) 100%
+                )`,
+              }}
+            >
+              {/* Inner card */}
+              <div className={`w-full h-full rounded-[10px] bg-gradient-to-br ${card.gradient} relative overflow-hidden`}>
+                {/* Shimmer effect */}
+                <div
+                  className="absolute inset-0 opacity-30"
+                  style={{
+                    background: `linear-gradient(
+                      105deg,
+                      transparent 40%,
+                      rgba(255, 255, 255, 0.3) 45%,
+                      rgba(255, 255, 255, 0.5) 50%,
+                      rgba(255, 255, 255, 0.3) 55%,
+                      transparent 60%
+                    )`,
+                    animation: "shimmer 3s ease-in-out infinite",
+                  }}
+                />
+
+                {/* Card content */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h4 className="text-white font-medium text-sm">{card.title}</h4>
+                  <p className="text-white/70 text-xs mt-1">{card.creator}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      {/* CSS for shimmer animation */}
+      <style jsx>{`
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+export default function V8Hero() {
   return (
     <div className="min-h-screen bg-[#FAF9F7]">
-      {/* Header - warm light mode */}
+      {/* Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between bg-[#FAF9F7]/90 backdrop-blur-sm border-b border-stone-200">
         <div className="flex items-center gap-6">
           <Link
@@ -52,7 +167,6 @@ export default function LightMasonry() {
           </span>
         </div>
 
-        {/* Center: Nav links */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <button
@@ -64,7 +178,6 @@ export default function LightMasonry() {
           ))}
         </div>
 
-        {/* Right: Actions */}
         <div className="flex items-center gap-3">
           <button className="p-2 text-stone-400 hover:text-stone-900 transition-colors">
             <Search className="w-5 h-5" />
@@ -78,8 +191,35 @@ export default function LightMasonry() {
         </div>
       </nav>
 
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-12 md:gap-8">
+            {/* Left side - Text content */}
+            <div className="md:w-1/2 lg:w-[55%]">
+              <h1 className="text-4xl md:text-5xl lg:text-[56px] font-semibold text-stone-900 leading-[1.1] tracking-tight">
+                Where the world's best AI video creators gather
+              </h1>
+
+              <p className="mt-6 text-lg text-stone-500 leading-relaxed max-w-xl">
+                Discover, share, and learn with the <RotatingText /> shaping a new art form
+              </p>
+
+              <button className="mt-8 bg-stone-900 hover:bg-stone-800 text-white font-medium px-6 py-3 rounded-full transition-colors text-base">
+                Join the community
+              </button>
+            </div>
+
+            {/* Right side - Stacked cards (hidden on mobile) */}
+            <div className="hidden md:flex md:w-1/2 lg:w-[45%] justify-center md:justify-end">
+              <StackedCards />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Category filter */}
-      <div className="fixed top-[73px] left-0 right-0 z-40 bg-[#FAF9F7]/90 backdrop-blur-sm border-b border-stone-200">
+      <div className="sticky top-[73px] z-40 bg-[#FAF9F7]/90 backdrop-blur-sm border-b border-stone-200">
         <div className="px-6 py-3">
           <div className="flex items-center gap-6 overflow-x-auto">
             {categories.map((cat, index) => (
@@ -99,7 +239,7 @@ export default function LightMasonry() {
       </div>
 
       {/* Main content */}
-      <main className="pt-32 px-6 pb-16">
+      <main className="px-6 py-12">
         {/* Section header */}
         <div className="flex items-center gap-4 mb-8">
           <span className="text-xs font-mono text-stone-400 uppercase tracking-wider">Featured Work</span>
@@ -107,23 +247,21 @@ export default function LightMasonry() {
           <span className="text-xs text-stone-400">{works.length} pieces</span>
         </div>
 
-        {/* Masonry grid using CSS columns */}
-        <div className="columns-1 md:columns-3 lg:columns-4 gap-4 space-y-4 px-16">
+        {/* Masonry grid */}
+        <div className="columns-1 md:columns-3 lg:columns-4 gap-4 space-y-4 px-0 md:px-16">
           {works.map((work) => (
             <article
               key={work.id}
               className="group cursor-pointer break-inside-avoid mb-4"
             >
-              {/* Thumbnail at native aspect ratio */}
               <div
-                className={`bg-linear-to-br ${work.gradient} ${getAspectClass(work.aspect)} w-full relative rounded-lg overflow-hidden shadow-sm group-hover:shadow-md transition-shadow`}
+                className={`bg-gradient-to-br ${work.gradient} ${getAspectClass(work.aspect)} w-full relative rounded-lg overflow-hidden shadow-sm group-hover:shadow-md transition-shadow`}
               >
                 <span className="absolute bottom-2 right-2 text-xs font-mono text-white bg-black/50 px-2 py-0.5 rounded">
                   {work.duration}
                 </span>
               </div>
 
-              {/* Metadata below */}
               <div className="mt-3 px-0.5">
                 <h3 className="text-sm font-medium text-stone-900 truncate group-hover:text-orange-600 transition-colors">
                   {work.title}

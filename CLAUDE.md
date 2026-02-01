@@ -9,10 +9,10 @@ BloomHive is a community and discovery platform for AI video creators (like Drib
 ## Commands
 
 ```bash
-npm run dev      # Start development server (localhost:3000)
-npm run build    # Production build
-npm run start    # Start production server
-npm run lint     # Run ESLint
+npm run dev -- -p 3002   # Start development server (use port 3002)
+npm run build            # Production build
+npm run start            # Start production server
+npm run lint             # Run ESLint
 ```
 
 ## Architecture

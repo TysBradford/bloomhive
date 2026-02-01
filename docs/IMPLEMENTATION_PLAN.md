@@ -15,6 +15,7 @@ This document tracks overall progress across all development phases. For detaile
 | 2. Core Features | 🔴 Not Started | [Sprint 2](./sprints/SPRINT_2_CORE.md) |
 | 3. Community | 🔴 Not Started | [Sprint 3](./sprints/SPRINT_3_COMMUNITY.md) |
 | 4. Launch | 🔴 Not Started | [Sprint 4](./sprints/SPRINT_4_LAUNCH.md) |
+| 5. Jobs Board | 🔴 Not Started | [Sprint 5](./sprints/SPRINT_5_JOBS_BOARD.md) |
 
 **Legend:** 🔴 Not Started | 🟡 In Progress | 🟢 Complete
 
@@ -101,9 +102,27 @@ Prepare for and execute public launch.
 
 ---
 
+## Phase 5 — Jobs Board
+
+**Status:** 🔴 Not Started
+**Sprint Doc:** [SPRINT_5_JOBS_BOARD.md](./sprints/SPRINT_5_JOBS_BOARD.md)
+
+A dedicated jobs board surfacing AI video creator opportunities, connecting hirers with talent.
+
+### Milestones
+- [ ] Job posting creation (company, role, requirements, budget)
+- [ ] Job listing feed with filtering (remote, contract type, tools/models)
+- [ ] Job application flow
+- [ ] Hirer dashboard (manage postings, review applicants)
+- [ ] Creator job alerts and saved searches
+- [ ] Featured/promoted listings (monetization opportunity)
+
+---
+
 ## Changelog
 
 | Date | Update |
 |------|--------|
+| 2026-02-01 | Added Phase 5 (Jobs Board) for AI video creator opportunities |
 | 2026-01-25 | Added Sprint 0 (Landing Page) with UI/UX discovery phase |
 | 2026-01-25 | Restructured implementation plan with sprint docs |
