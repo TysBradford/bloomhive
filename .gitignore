@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local development
+.playwright-mcp/
+
+# legacy/old project artifacts
+bloomhive/
