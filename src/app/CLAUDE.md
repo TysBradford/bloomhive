@@ -11,56 +11,43 @@ Every screen, component, and interaction in MooHive must feel hand-crafted and p
 - **Line lengths** — 60-75 characters max for readable body text
 - **Mobile-first** — responsive by default, every layout must work beautifully on all screen sizes
 
-## Landing Page (Marketing)
+## Design Direction
 
-The landing page is bold, vibrant, and confident. It makes a statement.
-
-### Colour Palette
-
-```
-Primary:     Vibrant coral/orange (#FF6B35) — energy, creativity
-Secondary:   Electric purple (#6366F1) — modern, tech-forward
-Accent:      Lime/yellow (#84CC16) — optimism, growth
-Neutrals:    Warm whites and soft darks — approachable, not stark
-```
-
-### Design Direction
-
-- **Bold, oversized typography** — big headlines that make a statement (Plus Jakarta Sans, Satoshi, or similar)
-- **Bento grid layout** — asymmetrical cards of varying sizes (Notion-inspired)
-- **Colour-blocked sections** — vibrant feature cards with distinct background colours
-- **Creator showcase grid** — real video thumbnails as the primary visual element
-- **Animated product showcase** — carousel or video previewing the platform experience
-- **Confident, playful tone** — feels made BY creatives FOR creatives
-
-### Key Patterns
-
-- Hero section with bold headline, subheadline, and email capture
-- Value props in a bento grid layout (not boring 3-column cards)
-- Social proof through creator work, not testimonial quotes
-- CTAs are action-oriented: "Join the community", "Get early access" — never "Submit" or "Sign up"
-- Page should feel alive — consider subtle parallax, scroll-triggered reveals, hover states with personality
-
-## App (Product)
-
-The app is restrained and sophisticated. Creator content is the star — the UI disappears.
+MooHive uses a unified light & refined aesthetic across both landing page and app. The UI frames creator work with elegance, never competing with it.
 
 ### Colour Palette
 
 ```
-Backgrounds:  Void (#0A0A0B) primary, Surface (#141416) elevated
-Text:         Chalk (#FAFAFA) primary, Mist (#71717A) secondary
-Accent:       Ember (#F97316) CTAs and highlights, Ember Soft (#FDBA74) hover states
+Background:   Linen (#FAF9F7) — warm off-white canvas
+Text Primary: Charcoal (stone-900 #1C1917) — headings, primary text
+Text Body:    Slate (stone-500 #78716C) — body copy, secondary text
+Text Meta:    Ash (stone-400 #A8A29E) — metadata, tertiary text
+Borders:      Frost (stone-200 #E7E5E4) — dividers, borders
+Surfaces:     Pearl (stone-100 #F5F5F4) / Parchment (stone-50 #FAFAF9) — cards, backgrounds
+Hover Accent: Ember (orange-600 #EA580C) — hover states, active elements (use sparingly)
+Primary CTA:  Ink (stone-900 #1C1917) — primary buttons, important actions
 Functional:   Success (#22C55E), Warning (#FACC15), Error (#EF4444)
 ```
 
-### Design Direction
+### Design Principles
 
-- **Dark mode default** — optimised for video viewing; light mode is secondary
+- **Creator content is the star** — the UI frames it, never competes with it
+- **Light, refined aesthetic** — warm off-white backgrounds (Linen), not sterile white
+- **Stone palette** — elegant, restrained neutrals that let video content provide the color
+- **Orange (Ember) is reserved** for hover states and active elements; use sparingly
+- **Primary CTAs use stone-900** — keeps focus on creator work, not UI elements
 - **Minimal chrome** — the feed IS the experience
 - **Video thumbnails at high resolution** — no compression artifacts, maintain original aspect ratios
 - **Metadata is secondary** — AI model, tools, prompts are visible but never compete with the work itself
-- **Linear-level polish** — refined typography hierarchy, considered spacing, sophisticated interactions
+
+### Landing Page Structure
+
+- **Hero with stacked cards** — headline, rotating text, CTA, and visual showcase of creator work
+- **Discovery grid** — masonry layout previewing the platform feed experience
+- **Value propositions** — brief, focused messaging (not walls of text)
+- **Final CTA** — email capture with waitlist positioning
+- Social proof through creator work, not testimonial quotes
+- CTAs are action-oriented: "Join the community", "Get early access" — never "Submit" or "Sign up"
 
 ### Typography
 
