@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Search, Bell } from "lucide-react";
+import { WaitlistForm } from "@/components/WaitlistForm";
 
 const navLinks = ["Explore", "Creators", "Collections", "Jobs"];
 const categories = ["All", "Cinematic", "Abstract", "Character", "Landscapes", "Motion Graphics"];
@@ -277,17 +278,38 @@ export default function Home() {
         </div>
       </main>
 
+      {/* Final CTA Section */}
+      <section id="join" className="bg-stone-100 py-12 md:py-20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold text-stone-900 mb-3">
+            Join the community
+          </h2>
+          <p className="text-stone-500 mb-8">
+            Get early access when we launch
+          </p>
+          <WaitlistForm source="landing_footer" />
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-stone-200 bg-stone-50">
-        <div className="px-6 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <span className="text-sm font-semibold text-stone-900">MooHive</span>
-            <p className="text-xs text-stone-500 mt-1">Where AI video creators thrive</p>
-          </div>
-          <div className="flex items-center gap-6">
-            <span className="text-xs text-stone-500 hover:text-stone-900 cursor-pointer transition-colors">About</span>
-            <span className="text-xs text-stone-500 hover:text-stone-900 cursor-pointer transition-colors">Terms</span>
-            <span className="text-xs text-stone-500 hover:text-stone-900 cursor-pointer transition-colors">Privacy</span>
+        <div className="px-6 py-8 max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <span className="text-sm font-semibold text-stone-900">MooHive</span>
+              <p className="text-xs text-stone-500 mt-1">Where AI video creators thrive</p>
+            </div>
+            <div className="flex items-center gap-6">
+              <a href="#" className="text-xs text-stone-500 hover:text-stone-900 transition-colors">
+                About
+              </a>
+              <a href="#" className="text-xs text-stone-500 hover:text-stone-900 transition-colors">
+                Terms
+              </a>
+              <a href="#" className="text-xs text-stone-500 hover:text-stone-900 transition-colors">
+                Privacy
+              </a>
+            </div>
           </div>
         </div>
       </footer>
