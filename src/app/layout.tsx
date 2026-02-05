@@ -13,6 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://moohive.com"),
   title: "MooHive — Where AI video creators thrive",
   description: "Discover, share, and connect with the pioneers shaping AI video. Browse portfolios, explore techniques, and join the community.",
   openGraph: {
@@ -20,23 +21,14 @@ export const metadata: Metadata = {
     description: "Discover, share, and connect with the pioneers shaping AI video.",
     type: "website",
     siteName: "MooHive",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "MooHive - Where AI video creators thrive",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "MooHive — Where AI video creators thrive",
     description: "Discover, share, and connect with the pioneers shaping AI video.",
-    images: ["/og-image.png"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
   },
 };
 

@@ -288,6 +288,43 @@ export default function Home() {
         </div>
       </main>
 
+      {/* Value Proposition Section */}
+      <section className="py-16 md:py-24 px-6 border-t border-stone-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+            {/* For Creators */}
+            <div className="text-center md:text-left">
+              <h3 className="text-lg font-semibold text-stone-900 mb-2">
+                For creators
+              </h3>
+              <p className="text-stone-500 leading-relaxed">
+                Show your work. Share your process. Build a portfolio that speaks for itself.
+              </p>
+            </div>
+
+            {/* For Hirers */}
+            <div className="text-center md:text-left">
+              <h3 className="text-lg font-semibold text-stone-900 mb-2">
+                For hirers
+              </h3>
+              <p className="text-stone-500 leading-relaxed">
+                Find AI video talent by style, tool, or technique. See the work before the pitch.
+              </p>
+            </div>
+
+            {/* Metadata angle */}
+            <div className="text-center md:text-left">
+              <h3 className="text-lg font-semibold text-stone-900 mb-2">
+                Every frame has a story
+              </h3>
+              <p className="text-stone-500 leading-relaxed">
+                Model, prompt, settings — every video tells the story of how it was made.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section id="join" className="bg-stone-100 py-12 md:py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">

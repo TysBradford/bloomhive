@@ -131,13 +131,13 @@ Per brand guidelines:
 
 ### Technical Requirements
 
-- [ ] Responsive design (mobile-first)
-- [ ] Email capture with Supabase
-- [ ] Custom carousel component (no generic library — this needs to feel bespoke)
-- [ ] OG image and meta tags for social sharing
+- [x] Responsive design (mobile-first)
+- [x] Email capture with Supabase
+- [x] Custom carousel component (no generic library — this needs to feel bespoke)
+- [x] OG image and meta tags for social sharing
 - [ ] Fast load times — optimise images, lazy load below fold
-- [ ] Accessible (WCAG AA minimum, AAA preferred for text)
-- [ ] Smooth scroll and subtle entrance animations (nothing that competes with video content)
+- [x] Accessible (WCAG AA minimum, AAA preferred for text)
+- [x] Smooth scroll and subtle entrance animations (nothing that competes with video content)
 
 ---
 
@@ -192,3 +192,4 @@ _Add notes here as we review references_
 |------|--------|
 | 2026-01-25 | Created sprint with discovery phase |
 | 2026-01-27 | Overhauled design direction: dropped B2B SaaS references, aligned to creative showcase inspiration (Dribbble, Runway, Behance, Vimeo, ArtStation, Pika), removed purple from palette, restructured page around hero carousel + discovery grid |
+| 2026-02-04 | Added Value Proposition section, dynamic OG images (Next.js opengraph-image.tsx), SVG favicon, marked technical requirements complete |
